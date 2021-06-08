@@ -13,8 +13,8 @@ To predict the license plate number, the following things need to be done:
 ## Dataset
 The following datasets have been used for different purposes:
 1. **For license plate detection (YOLO)**: The dataset contains approximately 4000 annotated images of cars with license plates. The dataset can be found and downloaded from here https://data.mendeley.com/datasets/nx9xbs4rgx/2
-2. **For character recognition**: The dataset has about 1000 images of digits from 0-9 and alphabets from A-Z. You can find the dataset here
-3. **For testing the whole model**: The dataset contains about 200 images of cars with license plates. You can find the dataset here
+2. **For character recognition**: The dataset has about 1000 images of digits from 0-9 and alphabets from A-Z. You can find the dataset here [Character Dataset](data.zip)
+3. **For testing the whole model**: The dataset contains about 200 images of cars with license plates. You can find the dataset here https://drive.google.com/file/d/1QAFdt5Mq8X6fZud7kdsjaJbJfSXrsFse/view?usp=sharing
 
 ## Technologies/Languages Used
 - **Python**: This is the most sought language for implementing AI projects. The version used is python 3.6 here.
@@ -126,6 +126,7 @@ In this, the angle of rotation is found by finding the sin of theta, from which 
 #### 2. Plate detection using YOLOv3
 We trained YOLOv3 on custom dataset for detection of license plate as mentioned in the 'Dataset' section.
 For this, darknet was installed and set up in the system. Using YOLOv3 config files, we trained our dataset on Git which returned ‘plates.weights’ file containing the weights obtained after training. The .weights file is then imported in the program and used to detect plates. The repository for installing and using darknet can be found here https://github.com/pjreddie/darknet.
+Due to constraints on size of file on github, we uploaded the ```lapi.weights``` file along with ```classes.names``` and ```darknet-yolov3.cfg``` files on the following link: https://drive.google.com/file/d/1cktcL1TXXRJ5o6CxzIuR08hPEWbb8Kkx/view?usp=sharing
 
 Initially, import all the necessary files and set up the model in the following way:
 ```
@@ -449,3 +450,8 @@ Optimal parameters:
 - Since the individual accuracies are not that great, we created a hybrid model of both the license detection methods.
 - The idea behind this is to send the image initially to YOLOv3 method. If the method does not return any image as license plate, the image is passed into the Contour method. The accuracy obtained using this hybrid approach is about ```90.96%```.
 - Note that the accuracy obtained will be less when implemented in the opposite direction (Contour method -> YOLOv3), because the Contour method often returns any rectangular object found in the image. So, it is always better to use YOLO first.
+
+## References
+- Shrutika Saunshi, Vishal Sahani, Juhi Patil, Abhishek Yadav, Dr. Sheetal Rathi, "License Plate Recognition Using Convolutional Neural Network" in IOSR Journal of Computer Engineering (IOSR-JCE), e-ISSN: 2278-0661,p-ISSN: 2278-8727, PP 28-33
+- Prof. Rupali Hande, Simran Pandita, Gaurav Marwal, Gaurav Marwal, Sivanta Beera, "Automatic Number Plate Detection System and Automating the Fine
+Generation Using YOLO-v3." in International Journal of Future Generation Communication and Networking, Vol. 13, No. 1s, (2020), pp. 406-- 413
