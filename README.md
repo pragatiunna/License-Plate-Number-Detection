@@ -432,7 +432,8 @@ def show_results():
 ![image](https://user-images.githubusercontent.com/85444229/121062438-b3eb2300-c7e2-11eb-9ac9-bc2dffc0c6be.png)
 
 ## Hyperparameter Tuning
-We performed hyperparameter tuning on the parameters dropout rate, optimizer and learning rate using Grid Search.
+Hyperparameter optimization or tuning is the problem of choosing a set of optimal hyperparameters for a learning algorithm. A hyperparameter is a parameter whose value is used to control the learning process.
+We performed hyperparameter tuning in the CNN model on the parameters dropout rate, optimizer and learning rate using Grid Search.
 
 ![image](https://user-images.githubusercontent.com/85444229/121062753-1e03c800-c7e3-11eb-89c3-d1453b65869c.png)
 
@@ -440,3 +441,11 @@ Optimal parameters:
 1. Dropout rate = 0.4
 2. Learning rate = 0.0001
 3. Optimizer = Adam
+
+## Result
+- Accuracy obtained using Contour method is about 60.24%.
+- Accuracy obtained by using YOLOv3 is about 74.10%.
+### Optimizing the result
+- Since the individual accuracies are not that great, we created a hybrid model of both the license detection methods.
+- The idea behind this is to send the image initially to YOLOv3 method. If the method does not return any image as license plate, the image is passed into the Contour method. The accuracy obtained using this hybrid approach is about ```90.96%```.
+- Note that the accuracy obtained will be less when implemented in the opposite direction (Contour method -> YOLOv3), because the Contour method often returns any rectangular object found in the image. So, it is always better to use YOLO first.
