@@ -61,7 +61,7 @@ plt.show()
 ```
 The above code performs the following functions:
 - **Resizing the image**: Each image is resized to 500px width, to ease processing in the later stages.
-- **Grayscale Conversion**: The inputted image is in RGB format. Main purpose of this conversion is to reduce the number of colors.
+- **Grayscale Conversion**: The input image is in RGB format. Main purpose of this conversion is to reduce the number of colors.
 - **Noise Removal**: Image noises are distortion in the image that arises due to fault in camera or result of poor visibility due to changing weather conditions. Noises are also the random variation in the intensity levels of the pixels. Noise can be of various types like Gaussian noise, Salt and pepper noise. We used iterative bilateral filter for noise removal. It provides the mechanism for noise reduction while preserving edges more effectively than median filter.
 - **Binarization**: Binarization is the process of converting an image into an image with two pixels value only i.e. containing white and black pixels. Performing binarization process before detecting and extracting license plate from the image will make the task of detecting license plate easier as edges will be more clearly in binary image.
 
